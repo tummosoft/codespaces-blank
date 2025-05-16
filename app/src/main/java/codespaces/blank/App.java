@@ -3,6 +3,9 @@
  */
 package codespaces.blank;
 
+import javax.swing.*;
+import java.net.URL;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
@@ -10,5 +13,14 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        URL imageUrl = App.class.getResource("/images/tap_1/32.jpg");      
+                
+        if (imageUrl != null) {
+            ImageIcon icon = new ImageIcon(imageUrl);
+            JLabel label = new JLabel(icon);
+            JOptionPane.showMessageDialog(null, label, "Hình ảnh", JOptionPane.PLAIN_MESSAGE);
+        } else {
+            System.out.println("Không tìm thấy hình ảnh.");
+        }
     }
 }
